@@ -1,0 +1,45 @@
+logging:
+  level:
+    co.axelrod: DEBUG
+
+spring:
+  security:
+      user:
+        name: vadim
+        password: pw
+        roles:
+          - ADMIN
+          - USER
+
+heartbeat:
+  delay: 60000
+
+---
+
+spring:
+  profiles: test
+  security:
+      user:
+        name: vadim
+        password: dev
+        roles:
+          - ADMIN
+          - USER
+
+heartbeat:
+  delay: 200
+
+---
+
+spring:
+  profiles: openshift
+  security:
+      user:
+        name: openshift
+        password: openshift
+        roles:
+          - ADMIN
+          - USER
+
+heartbeat:
+  delay: 5000
